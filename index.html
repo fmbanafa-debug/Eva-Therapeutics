@@ -282,4 +282,106 @@
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="BIO TECH GATE" style="height: 40px; width: auto;">
             </div>
             <h2>The Body Expels the PFD After Around Four to Six Hours</h2>
-            <p>The body expels the PFD after around four to six hours, then a fresh
+            <p>The body expels the PFD after around four to six hours, then a fresh dose of PFD oxygenated liquid is necessary per day. This one infusion works for four hours, six liquid exchanges until the patient's oxygen level is stable.</p>
+            <p>You are conducting phase 1 and 2 studies in Japan while preparing for FDA IND for U.S. phase 1/2 trial for discussion.</p>
+            <p>Last year we successfully completed a phase 1a clinical study in Japan to evaluate the safety/tolerability of EVA101 in four healthy male volunteers. As the chart of EVA101 shows, we are in the process of organizing the next clinical studies.</p>
+            <div class="chart-placeholder">
+                [Placeholder for EVA Therapeutics Long Range Forecast Chart: Projections for Japan and U.S. launches from 2021-2040, showing phases Ph1a JP, Ph1b JP, Ph2 JP, Ph3 JP, US Ph1, Ph2, Ph3 with stacked bars rising to ~70K patients]
+            </div>
+            <p>Hopefully EVA101 will be available in Japan in 2028 to save many RDS infants as we can. Globally our plan is to launch the product in 2029 in the U.S. and in 2029 in the big five European countries.</p>
+            <p>Developing our technology requires substantial investment. We are considering an M&A with compatible American or European multinational companies specializing in pulmonary surfactants in neonatology pharmaceuticals.</p>
+            <div class="footer">
+                BIOTECHGATE by VENTURE VALUATION | Kasernenstrasse 11 | 8004 Zurich | Switzerland | T +41 (0) 43 321 86 50 | www.venturevaluation.com | www.biotechgate.com
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide">
+            <div class="header">
+                <div class="logo">EVA Therapeutics, Inc.</div>
+                <div>Venture Valuation Let's Interview Series</div>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="BIO TECH GATE" style="height: 40px; width: auto;">
+            </div>
+            <h2>VV Comments After the Interview</h2>
+            <p>A major advantage of the EVA technology is that it is minimally invasive. Once the EVA101 proof of concept is established, various clinical applications are foreseen. For example, pneumonia, heart failure, airway burns, bronchial asthma, severe attacks, and cases where VV ECMO is minimally invasive.</p>
+            <p>The Ig Nobel Prize is awarded every year since 1991 to achievements in scientific research that "first make people laugh and then think". It parodies the Nobel Prizes in a ceremony at the Massachusetts Institute of Technology in the U.S.</p>
+            <p>Dr. TAKABE Takanori, an Ig Nobel Prize winner and the founder of EVA Therapeutics, realized that loaches, an eelpout fish, breathe through their intestines in low oxygen environments. He and his team studied if mammals could do the same and illustrated respiratory failure on Med.2, 773-783, June 11, 2021.</p>
+            <div class="concept-diagram">
+                [Placeholder for EVA Concept Diagram: Enteral Ventilation showing PFD infusion via rectum for respiratory support, including fish illustration and medical setup]
+            </div>
+            <p>When Dr. Takabe and his team started pre-clinical studies in the COVID crisis, they realized that many hospitals were seriously short of mechanical ventilators and ECMO for patients with severe cardiopulmonary oxygenation support for mechanical ventilation in patients with severe respiratory failure. These indwelling medical treatments are physically hard for the patients and not easy to handle for medical staff.</p>
+            <p>https://improbable.com</p>
+            <p>¹ Transl. Respir. Med. 9, 3 (2021). https://doi.org/10.1186/s40248-021-00105-7<br>² Transl. Respir. Sci. (3): 97-102, 2021: doi:10.33181/trs.202105-enteral-ventilation-to-combat-severe-respiratory-failure</p>
+            <div class="footer">
+                BIOTECHGATE by VENTURE VALUATION | Kasernenstrasse 11 | 8004 Zurich | Switzerland | T +41 (0) 43 321 86 50 | www.venturevaluation.com | www.biotechgate.com
+            </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide">
+            <div class="header">
+                <div class="logo">EVA Therapeutics, Inc.</div>
+                <div>Venture Valuation Let's Interview Series</div>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="BIO TECH GATE" style="height: 40px; width: auto;">
+            </div>
+            <h2>Contact Details</h2>
+            <p><strong>Mariko Hirano, m.hirano@venturevaluation.com</strong></p>
+            <p>Venture Valuation specializes in independent assessment and valuation of technology-driven companies in the Life Sciences (Biotech, Pharma, and Medtech), ICT, Fintech, Nanotech, Clean and Renewable Energy. In addition to valuation products, Venture Valuation offers high-quality, focused information services with companies with interesting technologies and services. We select and interview thriving companies and organizations especially in Switzerland and Japan.</p>
+            <div class="footer">
+                BIOTECHGATE by VENTURE VALUATION | Kasernenstrasse 11 | 8004 Zurich | Switzerland | T +41 (0) 43 321 86 50 | www.venturevaluation.com | www.biotechgate.com
+            </div>
+        </div>
+    </div>
+    <nav>
+        <button id="prev" onclick="prevSlide()">Previous</button>
+        <button id="next" onclick="nextSlide()">Next</button>
+    </nav>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            document.getElementById('prev').disabled = index === 0;
+            document.getElementById('next').disabled = index === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Touch/swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+        document.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+        document.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            if (startX - endX > 50) nextSlide();
+            if (endX - startX > 50) prevSlide();
+        });
+
+        showSlide(0);
+    </script>
+</body>
+</html>
