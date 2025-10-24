@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVA Therapeutics, Inc. - Interactive Business Deck</title>
+    <title>EVA Therapeutics, Inc. - Mobile-Friendly Interactive Business Deck</title>
     <style>
         body {
             margin: 0;
@@ -11,6 +11,7 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             color: #333;
+            overflow-x: hidden;
         }
         #deck {
             position: relative;
@@ -24,13 +25,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            padding: 40px;
+            padding: 20px;
             box-sizing: border-box;
             background: linear-gradient(135deg, #001f3f 0%, #0074D9 100%);
             color: white;
             display: none;
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
+            overflow-y: auto;
         }
         .slide.active {
             display: block;
@@ -39,40 +41,55 @@
         h1, h2 {
             color: #fff;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        h3 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.2em;
         }
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
             border-bottom: 2px solid #39CCCC;
+            flex-wrap: wrap;
         }
         .logo {
-            font-size: 24px;
+            font-size: 1.5em;
             font-weight: bold;
             color: #39CCCC;
+            flex: 1;
+        }
+        .header div {
+            flex: 1;
+            text-align: center;
+            margin: 0 10px;
         }
         .footer {
             position: absolute;
-            bottom: 20px;
-            left: 40px;
-            right: 40px;
+            bottom: 10px;
+            left: 20px;
+            right: 20px;
             text-align: center;
-            font-size: 12px;
+            font-size: 0.8em;
             color: #ccc;
             border-top: 1px solid #ccc;
-            padding-top: 10px;
+            padding-top: 5px;
+            line-height: 1.2;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 15px 0;
             background: rgba(255,255,255,0.1);
+            font-size: 0.9em;
         }
         th, td {
-            padding: 10px;
+            padding: 8px;
             text-align: left;
             border: 1px solid rgba(255,255,255,0.2);
         }
@@ -81,26 +98,30 @@
         }
         .kit-diagram, .chart-placeholder, .concept-diagram {
             text-align: center;
-            margin: 20px 0;
+            margin: 15px 0;
             font-style: italic;
             color: #ccc;
+            font-size: 0.9em;
         }
         nav {
             position: fixed;
-            bottom: 20px;
+            bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
+            display: flex;
+            gap: 10px;
         }
         button {
             background: #39CCCC;
             color: white;
             border: none;
-            padding: 10px 20px;
-            margin: 0 10px;
+            padding: 12px 20px;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 1em;
+            min-width: 80px;
+            touch-action: manipulation;
         }
         button:hover {
             background: #0074D9;
@@ -114,10 +135,75 @@
             padding: 0;
         }
         li {
-            margin: 10px 0;
+            margin: 8px 0;
             padding: 10px;
             background: rgba(255,255,255,0.1);
             border-radius: 5px;
+            line-height: 1.4;
+        }
+        p {
+            line-height: 1.5;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        /* Mobile-specific adjustments */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 15px;
+            }
+            h1, h2 {
+                font-size: 1.3em;
+            }
+            h3 {
+                font-size: 1.1em;
+            }
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header div {
+                margin: 5px 0;
+            }
+            .logo {
+                font-size: 1.3em;
+            }
+            table {
+                font-size: 0.8em;
+            }
+            th, td {
+                padding: 5px;
+            }
+            nav {
+                bottom: 5px;
+                flex-direction: column;
+                width: 90%;
+                left: 5%;
+            }
+            button {
+                padding: 15px;
+                font-size: 1.1em;
+            }
+            .footer {
+                font-size: 0.7em;
+                left: 15px;
+                right: 15px;
+            }
+            ul li, p {
+                font-size: 0.95em;
+            }
+        }
+        @media (max-width: 480px) {
+            .slide {
+                padding: 10px;
+            }
+            h1, h2 {
+                font-size: 1.2em;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
         }
     </style>
 </head>
@@ -128,12 +214,12 @@
             <div class="header">
                 <div class="logo">EVA Therapeutics, Inc.</div>
                 <div>Venture Valuation Let's Interview Series</div>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="BIO TECH GATE" style="height: 50px;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="BIO TECH GATE" style="height: 40px; width: auto;">
             </div>
             <h2>Company Description</h2>
-            <p style="text-align: center; font-size: 18px;">Focusing primarily on rescuing premature newborns with respiratory distress syndrome by the unprecedented enteral ventilation technology.</p>
-            <div style="text-align: center; margin: 20px 0;">
-                <span style="font-size: 48px; color: #39CCCC;">⭕ EVA</span>
+            <p style="text-align: center; font-size: 1.1em;">Focusing primarily on rescuing premature newborns with respiratory distress syndrome by the unprecedented enteral ventilation technology.</p>
+            <div style="text-align: center; margin: 15px 0;">
+                <span style="font-size: 3em; color: #39CCCC;">⭕ EVA</span>
             </div>
             <h3>Company Details</h3>
             <ul>
@@ -158,7 +244,7 @@
             <div class="header">
                 <div class="logo">EVA Therapeutics, Inc.</div>
                 <div>Venture Valuation Let's Interview Series</div>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="BIO TECH GATE" style="height: 50px;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="BIO TECH GATE" style="height: 40px; width: auto;">
             </div>
             <h2>Your First Project EVA101 for Prematurely Born Babies with Respiratory Distress Syndrome (RDS)</h2>
             <p>Your first project EVA101 for prematurely born babies with respiratory distress syndrome aims to be used in combination with pulmonary surfactant administration and standard respiratory support methods such as mechanical ventilation.</p>
@@ -193,97 +279,7 @@
             <div class="header">
                 <div class="logo">EVA Therapeutics, Inc.</div>
                 <div>Venture Valuation Let's Interview Series</div>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="BIO TECH GATE" style="height: 50px;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="BIO TECH GATE" style="height: 40px; width: auto;">
             </div>
             <h2>The Body Expels the PFD After Around Four to Six Hours</h2>
-            <p>The body expels the PFD after around four to six hours, then a fresh dose of PFD oxygenated liquid is necessary per day. This one infusion works for four hours, six liquid exchanges until the patient's oxygen level is stable.</p>
-            <p>You are conducting phase 1 and 2 studies in Japan while preparing for FDA IND for U.S. phase 1/2 trial for discussion.</p>
-            <p>Last year we successfully completed a phase 1a clinical study in Japan to evaluate the safety/tolerability of EVA101 in four healthy male volunteers. As the chart of EVA101 shows, we are in the process of organizing the next clinical studies.</p>
-            <div class="chart-placeholder">
-                [Placeholder for EVA Therapeutics Long Range Forecast Chart: Projections for Japan and U.S. launches from 2021-2040, showing phases Ph1a JP, Ph1b JP, Ph2 JP, Ph3 JP, US Ph1, Ph2, Ph3 with stacked bars rising to ~70K patients]
-            </div>
-            <p>Hopefully EVA101 will be available in Japan in 2028 to save many RDS infants as we can. Globally our plan is to launch the product in 2029 in the U.S. and in 2029 in the big five European countries.</p>
-            <p>Developing our technology requires substantial investment. We are considering an M&A with compatible American or European multinational companies specializing in pulmonary surfactants in neonatology pharmaceuticals.</p>
-            <div class="footer">
-                BIOTECHGATE by VENTURE VALUATION | Kasernenstrasse 11 | 8004 Zurich | Switzerland | T +41 (0) 43 321 86 50 | www.venturevaluation.com | www.biotechgate.com
-            </div>
-        </div>
-
-        <!-- Slide 4 -->
-        <div class="slide">
-            <div class="header">
-                <div class="logo">EVA Therapeutics, Inc.</div>
-                <div>Venture Valuation Let's Interview Series</div>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="BIO TECH GATE" style="height: 50px;">
-            </div>
-            <h2>VV Comments After the Interview</h2>
-            <p>A major advantage of the EVA technology is that it is minimally invasive. Once the EVA101 proof of concept is established, various clinical applications are foreseen. For example, pneumonia, heart failure, airway burns, bronchial asthma, severe attacks, and cases where VV ECMO is minimally invasive.</p>
-            <p>The Ig Nobel Prize is awarded every year since 1991 to achievements in scientific research that "first make people laugh and then think". It parodies the Nobel Prizes in a ceremony at the Massachusetts Institute of Technology in the U.S.</p>
-            <p>Dr. TAKABE Takanori, an Ig Nobel Prize winner and the founder of EVA Therapeutics, realized that loaches, an eelpout fish, breathe through their intestines in low oxygen environments. He and his team studied if mammals could do the same and illustrated respiratory failure on Med.2, 773-783, June 11, 2021.</p>
-            <div class="concept-diagram">
-                [Placeholder for EVA Concept Diagram: Enteral Ventilation showing PFD infusion via rectum for respiratory support, including fish illustration and medical setup]
-            </div>
-            <p>When Dr. Takabe and his team started pre-clinical studies in the COVID crisis, they realized that many hospitals were seriously short of mechanical ventilators and ECMO for patients with severe cardiopulmonary oxygenation support for mechanical ventilation in patients with severe respiratory failure. These indwelling medical treatments are physically hard for the patients and not easy to handle for medical staff.</p>
-            <p>https://improbable.com</p>
-            <p>¹ Transl. Respir. Med. 9, 3 (2021). https://doi.org/10.1186/s40248-021-00105-7<br>² Transl. Respir. Sci. (3): 97-102, 2021: doi:10.33181/trs.202105-enteral-ventilation-to-combat-severe-respiratory-failure</p>
-            <div class="footer">
-                BIOTECHGATE by VENTURE VALUATION | Kasernenstrasse 11 | 8004 Zurich | Switzerland | T +41 (0) 43 321 86 50 | www.venturevaluation.com | www.biotechgate.com
-            </div>
-        </div>
-
-        <!-- Slide 5 -->
-        <div class="slide">
-            <div class="header">
-                <div class="logo">EVA Therapeutics, Inc.</div>
-                <div>Venture Valuation Let's Interview Series</div>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="BIO TECH GATE" style="height: 50px;">
-            </div>
-            <h2>Contact Details</h2>
-            <p><strong>Mariko Hirano, m.hirano@venturevaluation.com</strong></p>
-            <p>Venture Valuation specializes in independent assessment and valuation of technology-driven companies in the Life Sciences (Biotech, Pharma, and Medtech), ICT, Fintech, Nanotech, Clean and Renewable Energy. In addition to valuation products, Venture Valuation offers high-quality, focused information services with companies with interesting technologies and services. We select and interview thriving companies and organizations especially in Switzerland and Japan.</p>
-            <div class="footer">
-                BIOTECHGATE by VENTURE VALUATION | Kasernenstrasse 11 | 8004 Zurich | Switzerland | T +41 (0) 43 321 86 50 | www.venturevaluation.com | www.biotechgate.com
-            </div>
-        </div>
-    </div>
-    <nav>
-        <button id="prev" onclick="prevSlide()">Previous</button>
-        <button id="next" onclick="nextSlide()">Next</button>
-    </nav>
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-            document.getElementById('prev').disabled = index === 0;
-            document.getElementById('next').disabled = index === totalSlides - 1;
-        }
-
-        function nextSlide() {
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-                showSlide(currentSlide);
-            }
-        }
-
-        function prevSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                showSlide(currentSlide);
-            }
-        }
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') nextSlide();
-            if (e.key === 'ArrowLeft') prevSlide();
-        });
-
-        showSlide(0);
-    </script>
-</body>
-</html>
+            <p>The body expels the PFD after around four to six hours, then a fresh
